@@ -44,7 +44,7 @@ def show():
 
 def get_config(config_file):
     with open(config_file, 'r') as stream:
-        config = yaml.load(stream)
+        config = yaml.load(stream, Loader=yaml.Loader)
     
     query_gpu_options = config['QUERY_GPU_OPTIONS']
     query_gpu_cmd = config['QUERY_GPU_CMD'] + '=' + ','.join(query_gpu_options) + ' --format=csv' 
